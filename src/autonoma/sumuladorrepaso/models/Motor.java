@@ -5,6 +5,7 @@
 package autonoma.sumuladorrepaso.models;
 
 import autonoma.simuladorrepaso.exceptions.CapacidadMotorException;
+import autonoma.simuladorrepaso.exceptions.VehiculoEncendidoException;
 
 /**
  *
@@ -48,6 +49,10 @@ public class Motor {
     // Métodos
     
     public void encender(){
+        if(this.encendido){
+            throw new  VehiculoEncendidoException();
+            
+        }
         this.encendido = true;
     }
     

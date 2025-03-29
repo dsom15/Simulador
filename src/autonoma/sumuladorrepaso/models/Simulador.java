@@ -5,6 +5,7 @@
 package autonoma.sumuladorrepaso.models;
 
 import autonoma.simuladorrepaso.exceptions.CapacidadMotorException;
+import autonoma.simuladorrepaso.exceptions.VehiculoEncendidoException;
 
 /**
  *
@@ -24,8 +25,15 @@ public class Simulador {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Métodos
-    public void encenderVehiculo(){
-        this.vehiculo.encender();
+    public void encenderVehiculo() throws VehiculoEncendidoException{
+        try{
+            this.vehiculo.encender();
+            
+        }catch(VehiculoEncendidoException e){
+            throw e;
+            
+        }
+        
     }
     
     public void apagarVehiculo(){
